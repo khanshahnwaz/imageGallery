@@ -9,7 +9,7 @@ const SearchBox = () => {
     
     // get image for search box
     async function fetchImage(){
-        const bgImage=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&query=mountaint&count=1`)
+        const bgImage=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&query=ani&count=1`)
        const response=await bgImage.json();
        console.log(response)
 
@@ -20,11 +20,14 @@ const SearchBox = () => {
 // get image for thumbs
     const fetchThumbImages=async()=>{
         console.log("hello")
-        const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&query=animal`)
+        // const data=await fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=50`)
+        const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=1&query=ani`)
+
         const response=await data.json();
         console.log(response)
-        // setThumbImages([...thumImages,...response.results])
-        setThumbImages(response.results)
+        setThumbImages([...thumImages,...response])
+
+        // setThumbImages(response)
     }
     useEffect(()=>{
         
@@ -35,8 +38,8 @@ const SearchBox = () => {
             container:document.getElementById('container')
     
           });
-          macyInstance.recalculate()
-       },[])
+        //   macyInstance.recalculate()
+       })
   
   return (
     <div>
@@ -56,8 +59,8 @@ const SearchBox = () => {
     </div>
     {/* thumbs */}
     <InfiniteScroll
-    dataLength={5}
-    
+    dataLength={thumImages.length}
+    hasMore={true}
     next={fetchThumbImages}
     loader={<div className="loader" >Loading ...</div>}
 >
@@ -65,7 +68,7 @@ const SearchBox = () => {
     {
         thumImages.map((item,i)=>{
             {console.log(item)}
-            return <ImageCard key={i} img={item.urls.regular} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username}/>
+            return <ImageCard key={i} img={item.urls.thumb} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username}/>
         })
     }
     </div> 

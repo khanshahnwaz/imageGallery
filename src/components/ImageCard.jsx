@@ -17,7 +17,7 @@ const ImageCard = (props) => {
                 <small >{props.desc}</small>
               </div>
           </div>
-          <div className='flex gap-x-2 items-center' >
+          <div className='flex gap-x-1 items-center' >
             <FiThumbsUp className='my-auto'/>
             <small>{props.like}</small>
           </div>
