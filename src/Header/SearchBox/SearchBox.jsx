@@ -9,23 +9,23 @@ const SearchBox = () => {
     
     // get image for search box
     async function fetchImage(){
-        const bgImage=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&query=ani&count=1`)
+        const bgImage=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&query=mountain&count=1`)
        const response=await bgImage.json();
        console.log(response)
 
-       setImage(response.results[0].urls.full)
+       setImage(response.results[2].urls.full)
     }
    
 
 // get image for thumbs
     const fetchThumbImages=async()=>{
         console.log("hello")
-        // const data=await fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=50`)
-        const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=1&query=ani`)
+        // const data=await fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=30`)
+        const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=1&query=mountain`)
 
         const response=await data.json();
         console.log(response)
-        setThumbImages([...thumImages,...response])
+        setThumbImages([...thumImages,...response.results])
 
         // setThumbImages(response)
     }
@@ -38,7 +38,7 @@ const SearchBox = () => {
             container:document.getElementById('container')
     
           });
-        //   macyInstance.recalculate()
+          macyInstance.recalculate()
        })
   
   return (
@@ -68,7 +68,7 @@ const SearchBox = () => {
     {
         thumImages.map((item,i)=>{
             {console.log(item)}
-            return <ImageCard key={i} img={item.urls.thumb} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username}/>
+            return <ImageCard key={i} img={item.urls.regular} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username}/>
         })
     }
     </div> 
