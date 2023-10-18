@@ -7,16 +7,16 @@ const ImageCard = (props) => {
     <>
     {/* ImagePopup */}
     <ImagePopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} {...props}/>
-    <div onClick={(e)=>[e.stopPropagation(),setShowPopUp(!showPopUp)]} className='  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black'>
-     <img src={props.img} alt='Image Card'/>
-     <div className=" flex   justify-between gap-x-5 px-3 py-1 text-gray-300 absolute bottom-10 ">
-          <div className="flex justify-between gap-x-2">
+    <div onClick={(e)=>[e.stopPropagation(),setShowPopUp(!showPopUp)]} className='hover:border-2  hover:border-green-500  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black bg-white'>
+     <img src={props.img} className='4/5' alt='Image Card'/>
+     <div className=" flex flex-wrap  justify-between gap-x-5 px-3 py-1 text-gray-600 ">
+          <div className="flex justify-between gap-x-2 flex-wrap">
           <img
-                  className="my-auto h-10 rounded-full border-2 border-white"
+                  className="my-auto h-5 md:h-10 rounded-full border-2 border-white"
                   src={props.user}
                   alt="user"
                 ></img>
-              <div className="text-left ">
+              <div className="text-left md:text-base text-sm b">
                 <p>{props.name}</p>
                 <small >{props.desc}</small>
               </div>

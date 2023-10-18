@@ -11,6 +11,7 @@ import {
   MdKeyboardArrowRight
 } from "react-icons/md";
 import SearchField from "../components/SearchBox/SearchField";
+import ToggleButton from "../components/ToggleButton";
 const MobileViews = (props) => {
   return (
     <div
@@ -57,10 +58,7 @@ const MobileViews = (props) => {
               <MdKeyboardArrowRight className="my-auto text-xl text-[#7879f1]" />
             </div>
             <div className="flex  justify-between text-gray-300">
-              <div className="flex justify-start gap-x-4">
-                <TbBrandWindows className="my-auto text-2xl" />
-                <p className="self-center">Dark Mode</p>
-              </div>
+              <ToggleButton/>
               <MdKeyboardArrowRight className="my-auto text-xl text-[#7879f1]" />
             </div>
       

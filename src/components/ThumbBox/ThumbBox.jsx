@@ -23,7 +23,7 @@ const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
     next={fetchThumbImages}
     loader={<HomeScreenLoader/>}
 >
-<div className='flex flex-wrap mx-auto' id='box'>
+<div className=' m-2 ' id='box'>
     {
         thumImages.map((item,i)=>{
             // {console.log(item)}
