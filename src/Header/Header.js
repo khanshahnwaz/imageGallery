@@ -16,11 +16,17 @@ const Header = ({setQuery,setThumbImages}) => {
   useEffect(() => {
 		listener = document.addEventListener("scroll", (e) => {
 			var scrolled = document.scrollingElement.scrollTop;
+      // check if in dark mode
+      // if header is hidden from viewport 
+      const heade=document.getElementById('head');
+      if(!heade.classList.contains('dark')){
 			if (scrolled >= 100) {
-				setScrollState("bg-white");
-			} else {
-				setScrollState("bg-none");
+				setScrollState("dark:bg-white");
 			}
+      //  else {
+			// 	setScrollState("bg-none");
+			// }
+    }else setScrollState('bg-black')
 		});
 		return () => {
 			document.removeEventListener("scroll", listener);
@@ -39,7 +45,7 @@ const Header = ({setQuery,setThumbImages}) => {
     <MobileViews controlSideBar={controlSideBar}
 setControlSideBar={setControlSideBar} setQuery={setQuery} setThumbImages={setThumbImages}/>
 
-    <div className={`lg:block hidden w-full  sticky z-10 top-0  ${scrollState} transition-colors duration-500 delay-75  `} >
+    <div id='head' className={`lg:block hidden w-full  sticky z-40 top-0  ${scrollState} transition-colors duration-500 delay-75  `} >
     <div className={`m-auto w-[95vw] md:w-[80vw]   flex flex-wrap justify-between p-5 `}>
     <div  className='flex items-center'>
 

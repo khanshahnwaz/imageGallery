@@ -20,6 +20,15 @@ const ImagePopup = (props) => {
     const relatedTags= keywords.filter(keyword =>
         keyword.toLowerCase().includes(props.query.toLowerCase())
       );
+
+      // handle clicks on related tags
+      const handleRelatedTags=async(value)=>{
+        const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=1&query=${value}`) 
+        const result=await data.json();
+        console.log("real time updates", result)
+        props.setThumbImages(result.results)
+        props.setQuery(value);
+      }
     if(props.showPopUp){
   return (
    <>
@@ -65,7 +74,7 @@ const ImagePopup = (props) => {
                 {
                   relatedTags.map((item,i)=>{
                     if(i<=5)
-                    return <div className='bg-orange-200 w-max p-1 rounded-md md:text-base text-sm'>{item}</div>
+                    return <div onClick={()=>[handleRelatedTags(item),props.setShowPopUp(false)]} className='hover:opacity-70 cursor-pointer bg-orange-200 w-max p-1 rounded-md md:text-base text-sm'>{item}</div>
                   }) 
                 }
                 </div>

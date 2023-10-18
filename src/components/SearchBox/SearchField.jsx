@@ -32,7 +32,7 @@ const SearchField = ({setQuery,setThumbImages,side}) => {
     <div className={`flex gap-x-2 justify-start shadow-md rounded-md p-3 lg:w-full ${side?'w-full':'w-4/5'} bg-gray-200 mx-auto`}>
     <CiSearch className='my-auto text-lg'/>
     <input type='text' 
-    className='bg-inherit outline-none w-full'
+    className='bg-inherit outline-none w-full text-gray-500'
      placeholder='Search input here'
      value={inputValue}
     onChange={handleInputChange}

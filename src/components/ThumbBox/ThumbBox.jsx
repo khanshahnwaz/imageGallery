@@ -4,7 +4,7 @@ import ImageCard from '../ImageCard';
 import Macy from 'macy';
 import HomeScreenLoader from '../HomeScreenLoader';
 
-const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
+const ThumbBox = ({thumImages,fetchThumbImages,query,setQuery,setThumbImages}) => {
   
     
     useEffect(()=>{
@@ -28,7 +28,9 @@ const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
         thumImages.map((item,i)=>{
             // {console.log(item)}
             return <ImageCard key={i} img={item.urls.regular} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username} twitter={item.user.social.twitter_username}
+            setQuery={setQuery}
             query={query}
+           setThumbImages={setThumbImages}
             />
         })
     }

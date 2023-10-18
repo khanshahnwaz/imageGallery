@@ -6,8 +6,8 @@ const ImageCard = (props) => {
   return (
     <>
     {/* ImagePopup */}
-    <ImagePopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} {...props}/>
-    <div onClick={(e)=>[e.stopPropagation(),setShowPopUp(!showPopUp)]} className='hover:border-2  hover:border-green-500  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black bg-white'>
+    <ImagePopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} setThumbImages={props.setThumbImages} setQuery={props.setQuery} query={props.query}{...props}/>
+    <div onClick={(e)=>[e.stopPropagation(),setShowPopUp(!showPopUp)]} className='hover:border-2 hover:z-20 transition-opacity duration-300 ease-in-out hover:border-green-500  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black '>
      <img src={props.img} className='4/5' alt='Image Card'/>
      <div className=" flex flex-wrap  justify-between gap-x-5 px-3 py-1 text-gray-600 ">
           <div className="flex justify-between gap-x-2 flex-wrap">

@@ -5,22 +5,31 @@ import React, { useState ,useEffect} from 'react';
 const ToggleButton = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
-    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDarkMode(prefersDarkMode);
+  // useEffect(() => {
+  //   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  //   setIsDarkMode(prefersDarkMode);
 
-    if (prefersDarkMode) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, []);
+  //   if (prefersDarkMode) {
+  //     document.body.classList.add('dark');
+  //   } else {
+  //     document.body.classList.remove('dark');
+  //   }
+  // }, []);
 
   const toggleDarkMode = () => {
-    console.log("hello")
+    // console.log("hello")
     setIsDarkMode(prev => !prev);
     document.body.classList.toggle('dark');
+    
   };
+  // dark mode was switching correctly for sticky header
+  useEffect(()=>{
+    const headerEle=document.getElementById('head');
+
+    if(isDarkMode){
+      headerEle.style.backgroundColor='black'
+    }else headerEle.style.backgroundColor='white'
+  },[isDarkMode])
 
   return (
     <label className="flex items-center cursor-pointer p-2">
