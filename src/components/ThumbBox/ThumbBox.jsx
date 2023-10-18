@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ImageCard from '../ImageCard';
 import Macy from 'macy';
+import HomeScreenLoader from '../HomeScreenLoader';
 
 const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
   
@@ -20,7 +21,7 @@ const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
     dataLength={thumImages.length}
     hasMore={true}
     next={fetchThumbImages}
-    loader={<div className="loader" >Loading ...</div>}
+    loader={<HomeScreenLoader/>}
 >
 <div className='flex flex-wrap mx-auto' id='box'>
     {

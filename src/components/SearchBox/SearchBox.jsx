@@ -32,7 +32,7 @@ const SearchBox = ({setThumbImages,setQuery,setFlagBg}) => {
   
   return (
     <div>
-    <div className={`w-full h-[70vh] bg-cover flex items-center`} style={{ backgroundImage: `url('${image}')`}}>
+    <div className={`w-full h-[50vh] lg:h-[70vh] bg-cover flex items-center`} style={{ backgroundImage: `url('${image}')`}}>
     
             <div className='mx-auto grid gap-y-5'>
                 <div>

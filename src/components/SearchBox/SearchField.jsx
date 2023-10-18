@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { CiSearch } from 'react-icons/ci';
 import searchKeywords from '../keyword';
-const SearchField = ({setQuery,setThumbImages}) => {
+const SearchField = ({setQuery,setThumbImages,side}) => {
     const [inputValue, setInputValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
   
@@ -29,7 +29,7 @@ const SearchField = ({setQuery,setThumbImages}) => {
       };
   return (
     <div className='relative'>
-    <div className='flex gap-x-2 justify-start shadow-md rounded-md p-3 w-full bg-gray-200 '>
+    <div className={`flex gap-x-2 justify-start shadow-md rounded-md p-3 lg:w-full ${side?'w-full':'w-4/5'} bg-gray-200 mx-auto`}>
     <CiSearch className='my-auto text-lg'/>
     <input type='text' 
     className='bg-inherit outline-none w-full'

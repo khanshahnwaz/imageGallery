@@ -14,13 +14,13 @@ function App() {
   let count1=0,count2=0;
   const fetchThumbImages=async()=>{
     console.log("hello",count2+=1)
-    const data=await fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=30`)
-    // const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=30&query=${query}`)
+    // const data=await fetch(`https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=30`)
+    const data=await fetch(`https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_ACCESS_KEY}&count=30&query=${query}`)
    
     const response=await data.json();
     setFlagThumb(true)
     console.log(response)
-    setThumbImages([...thumImages,...response])
+    setThumbImages([...thumImages,...response.results])
 
     // setThumbImages(response)
 }
@@ -32,7 +32,7 @@ useEffect(()=>{
   return (
     <div className="App">
      <Header setThumbImages={setThumbImages} setQuery={setQuery}/>
-   {setFlagBg && setFlagThumb?
+   {(setFlagBg && setFlagThumb)?
     <> <SearchBox setFlagBg={setFlagBg} setThumbImages={setThumbImages} setQuery={setQuery}/>
      <ThumbBox thumImages={thumImages} fetchThumbImages={fetchThumbImages} query={query}/>
      </>
