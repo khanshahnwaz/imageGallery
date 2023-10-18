@@ -1,0 +1,40 @@
+import React, { useEffect,useState } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component';
+import ImageCard from '../ImageCard';
+import Macy from 'macy';
+
+const ThumbBox = ({thumImages,fetchThumbImages,query}) => {
+  
+    
+    useEffect(()=>{
+        var macyInstance = Macy({
+            container:document.getElementById('box')
+    
+          });
+          macyInstance.recalculate()
+    })
+  return (
+    <div className='my-10 w-[90%] mx-auto '>
+        <h1 className='text-left font-bold text-3xl tracking-wide'>{query}</h1>
+    <InfiniteScroll
+    dataLength={thumImages.length}
+    hasMore={true}
+    next={fetchThumbImages}
+    loader={<div className="loader" >Loading ...</div>}
+>
+<div className='flex flex-wrap mx-auto' id='box'>
+    {
+        thumImages.map((item,i)=>{
+            // {console.log(item)}
+            return <ImageCard key={i} img={item.urls.regular} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username} twitter={item.user.social.twitter_username}
+            query={query}
+            />
+        })
+    }
+    </div> 
+</InfiniteScroll>
+</div>
+  )
+}
+
+export default ThumbBox

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {FiThumbsUp} from 'react-icons/fi'
+import ImagePopup from './ImagePopup';
 const ImageCard = (props) => {
-    
+    const [showPopUp,setShowPopUp]=useState(false);
   return (
-    <div className='  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black'>
+    <>
+    {/* ImagePopup */}
+    <ImagePopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} {...props}/>
+    <div onClick={(e)=>[e.stopPropagation(),setShowPopUp(!showPopUp)]} className='  py-3 px-1  hover:shadow-3xl cursor-pointer hover:opacity-70 hover:text-black'>
      <img src={props.img} alt='Image Card'/>
      <div className=" flex   justify-between gap-x-5 px-3 py-1 text-gray-300 absolute bottom-10 ">
           <div className="flex justify-between gap-x-2">
@@ -23,6 +27,7 @@ const ImageCard = (props) => {
           </div>
             </div>
     </div>
+    </>
   )
 }
 
