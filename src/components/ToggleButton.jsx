@@ -1,4 +1,3 @@
-// ToggleButton.js
 
 import React, { useState ,useEffect} from 'react';
 
@@ -36,7 +35,7 @@ const ToggleButton = () => {
           }`}
         ></div>
       </div>
-      <div className="ml-3 font-semibold dark:text-gray-300 ">
+      <div className="ml-3 font-semibold text-gray-500 ">
         Dark Mode
       </div>
     </label>

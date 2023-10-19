@@ -1,3 +1,5 @@
+// array of some common keywrods used to fetch images from unsplash api 
+// we use this to show suggestions
 const searchKeywords=['Majestic Snowy Peaks',
 'Rugged Cliff Views',
 'Pine-covered Slopes',

@@ -1,9 +1,9 @@
 import React,{useContext,useState,useEffect} from 'react'
 import {CiSearch} from 'react-icons/ci'
-import SearchField from '../components/HomePage/SearchField';
-import MobileViews from './MobileViews';
+import SearchField from '../HomePage/SearchField';
+import MobileViews from './MobileHeader';
 import { MdOutlineMenu, MdOutlineMenuBook } from 'react-icons/md';
-import ToggleButton from '../components/ToggleButton';
+import ToggleButton from '../ToggleButton';
 
 
 const Header = ({setQuery,setThumbImages}) => {

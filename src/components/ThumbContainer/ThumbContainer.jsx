@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ImageCard from '../ImageCard';
 import Macy from 'macy';
-import HomeScreenLoader from '../HomeScreenLoader';
+import HomeScreenLoader from '../ScreenLoader';
 
 const ThumbBox = ({thumImages,fetchThumbImages,query,setQuery,setThumbImages}) => {
   
