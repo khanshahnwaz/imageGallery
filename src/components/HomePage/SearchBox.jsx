@@ -17,7 +17,6 @@ const SearchBox = ({setThumbImages,setQuery,image}) => {
         </div>
       
     </div>
-    {/* thumbs */}
    
    
     </div>

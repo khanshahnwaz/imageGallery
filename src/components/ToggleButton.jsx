@@ -5,19 +5,7 @@ import React, { useState ,useEffect} from 'react';
 const ToggleButton = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // useEffect(() => {
-  //   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  //   setIsDarkMode(prefersDarkMode);
-
-  //   if (prefersDarkMode) {
-  //     document.body.classList.add('dark');
-  //   } else {
-  //     document.body.classList.remove('dark');
-  //   }
-  // }, []);
-
   const toggleDarkMode = () => {
-    // console.log("hello")
     setIsDarkMode(prev => !prev);
     document.body.classList.toggle('dark');
     document.body.classList.toggle('darkMode')

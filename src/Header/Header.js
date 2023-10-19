@@ -1,6 +1,6 @@
 import React,{useContext,useState,useEffect} from 'react'
 import {CiSearch} from 'react-icons/ci'
-import SearchField from '../components/SearchBox/SearchField';
+import SearchField from '../components/HomePage/SearchField';
 import MobileViews from './MobileViews';
 import { MdOutlineMenu, MdOutlineMenuBook } from 'react-icons/md';
 import ToggleButton from '../components/ToggleButton';
@@ -10,7 +10,6 @@ const Header = ({setQuery,setThumbImages}) => {
 
   const [controlSideBar, setControlSideBar] = useState("-left-[200%]");
 
-  // console.log("I am in header component.")
   const[scrollState,setScrollState]=useState('')
   let listener=null;
   useEffect(() => {
@@ -23,9 +22,7 @@ const Header = ({setQuery,setThumbImages}) => {
 			if (scrolled >= 100) {
 				setScrollState("dark:bg-white");
 			}
-      //  else {
-			// 	setScrollState("bg-none");
-			// }
+     
     }else setScrollState('bg-black')
 		});
 		return () => {

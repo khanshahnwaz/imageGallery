@@ -10,7 +10,7 @@ import { TbBrandWindows,TbHexagonLetterO } from "react-icons/tb";
 import {
   MdKeyboardArrowRight
 } from "react-icons/md";
-import SearchField from "../components/SearchBox/SearchField";
+import SearchField from "../components/HomePage/SearchField";
 import ToggleButton from "../components/ToggleButton";
 const MobileViews = (props) => {
   return (
@@ -18,7 +18,6 @@ const MobileViews = (props) => {
     className={` lg:hidden w-full sm:w-max    h-full bg-black text-left py-10 px-10  absolute top-0 ${props.controlSideBar}  z-50 transition-all ease-in-out duration-1000 `}
     
   >
-    {/* <img src={tri} alt='triangle' className='indivne float-left'/> */}
     <div className="w-4/5 mx-auto sm:mx-0 lg:mx-auto text-left grid gap-y-5 ">
       <div className="flex lg:gap-x-4 lg:justify-start justify-between">
 

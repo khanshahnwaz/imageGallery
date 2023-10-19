@@ -41,7 +41,7 @@ const SearchField = ({setQuery,setThumbImages,side}) => {
     </input>
    
    </div>
-   <ul className={`text-left   ${inputValue &&suggestions.length>0?['bg-white']:'hidden'} font-semibold absolute left-10 p-3  z-10`}>
+   <ul className={`text-left   ${inputValue &&suggestions.length>0?['bg-white']:'hidden'} font-semibold absolute left-10 p-3 pr-10  z-10 text-gray-500`}>
             {suggestions?.map((item,i)=>{
                 if(i<=5)
                   return <li onClick={()=>[handleInputChange(item),setSuggestions([])]} className='p-1 hover:underline cursor-pointer hover:font-bold' key={i}>{item}</li>
