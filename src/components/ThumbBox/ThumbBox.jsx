@@ -9,7 +9,20 @@ const ThumbBox = ({thumImages,fetchThumbImages,query,setQuery,setThumbImages}) =
     
     useEffect(()=>{
         var macyInstance = Macy({
-            container:document.getElementById('box')
+            container:document.getElementById('box'),
+            columns:6,
+            margin:{
+                x:5,
+                y:10
+            },
+            breakAt:{
+                1500:5,
+                1200:4,
+                1050:3,
+                750:2,
+                500:1
+            
+            }
     
           });
           macyInstance.recalculate()
@@ -27,7 +40,7 @@ const ThumbBox = ({thumImages,fetchThumbImages,query,setQuery,setThumbImages}) =
     {
         thumImages.map((item,i)=>{
             // {console.log(item)}
-            return <ImageCard key={i} img={item.urls.regular} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username} twitter={item.user.social.twitter_username}
+            return <ImageCard key={i} img={item.urls.thumb} user={item.user.profile_image.small} name={item.user.name} like={item.likes} desc={item.user.instagram_username} twitter={item.user.social.twitter_username}
             setQuery={setQuery}
             query={query}
            setThumbImages={setThumbImages}

@@ -15,7 +15,8 @@ import ToggleButton from "../components/ToggleButton";
 const MobileViews = (props) => {
   return (
     <div
-    className={` lg:hidden w-full sm:w-max    h-full bg-[#0c122b] text-left py-10 px-10  absolute top-0 ${props.controlSideBar}  z-50 transition-all ease-in-out duration-1000 `}
+    className={` lg:hidden w-full sm:w-max    h-full bg-black text-left py-10 px-10  absolute top-0 ${props.controlSideBar}  z-50 transition-all ease-in-out duration-1000 `}
+    
   >
     {/* <img src={tri} alt='triangle' className='indivne float-left'/> */}
     <div className="w-4/5 mx-auto sm:mx-0 lg:mx-auto text-left grid gap-y-5 ">
@@ -29,7 +30,7 @@ const MobileViews = (props) => {
       </div>
      <SearchField side setQuery={props.setQuery} setThumbImages={props.setThumbImages} />
 
-      <div className="flex  p-2 rounded-md justify-between text-gray-300 bg-[#5555b8]">
+      <div className=" flex  p-2 rounded-md justify-between text-gray-300 bg-[#5555b8]">
               <div className="flex justify-start gap-x-4">
                 <TbBrandWindows className="my-auto text-2xl" />
                 <p className="self-center">Home</p>
@@ -58,7 +59,9 @@ const MobileViews = (props) => {
               <MdKeyboardArrowRight className="my-auto text-xl text-[#7879f1]" />
             </div>
             <div className="flex  justify-between text-gray-300">
-              <ToggleButton/>
+              <ToggleButton
+              onClick={()=>props.setControlSideBar('-left-[200%]')}
+              />
               <MdKeyboardArrowRight className="my-auto text-xl text-[#7879f1]" />
             </div>
       

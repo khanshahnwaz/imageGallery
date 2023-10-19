@@ -35,9 +35,9 @@ const ImagePopup = (props) => {
    {/* for dark background */}
      <div className="fixed  z-30 w-screen h-screen inset-0 bg-gray-800 bg-opacity-60"></div>
 
-     <div id='container'  className=" fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-40   rounded-lg shadow-2xl w-[90vw] md:w-[40vw]  bg-white">
+     <div id='container'  className={`fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-40   rounded-lg shadow-2xl w-[90vw] sm:w-[85vw] md:w-[50vw] xl:w-[40vw] ${document.body.classList.contains('dark')?'bg-black':'bg-white'} `}>
         {/* close card  */}
-        <RxCross2  className='float-right fixed -traslate-x-1/2 -translate-y-1/2 -right-1 -top-2 hover:opacity-10 cursor-pointer text-white text-3xl' onClick={()=>props.setShowPopUp(false)}/>
+        <RxCross2  className='float-right fixed -traslate-x-1/2 -translate-y-1/2 -right-1 -top-2 hover:opacity-10 cursor-pointer text-gray-400 text-3xl' onClick={()=>props.setShowPopUp(false)}/>
         <img src={props.img} className='rounded-lg w-full h-[40vh] md:h-[50vh]'/>
         <div className='px-5 py-2 my-2 '>
         <div className=" flex   justify-between gap-x-5 px-3 py-1   w-full text-gray-500">
@@ -74,7 +74,7 @@ const ImagePopup = (props) => {
                 {
                   relatedTags.map((item,i)=>{
                     if(i<=5)
-                    return <div onClick={()=>[handleRelatedTags(item),props.setShowPopUp(false)]} className='hover:opacity-70 cursor-pointer bg-orange-200 w-max p-1 rounded-md md:text-base text-sm'>{item}</div>
+                    return <div key={i} onClick={()=>[handleRelatedTags(item),props.setShowPopUp(false)]} className='hover:opacity-70 cursor-pointer bg-orange-200 w-max p-1 rounded-md md:text-base text-sm text-gray-500'>{item}</div>
                   }) 
                 }
                 </div>

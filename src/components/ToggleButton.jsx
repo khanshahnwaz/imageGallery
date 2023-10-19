@@ -20,6 +20,7 @@ const ToggleButton = () => {
     // console.log("hello")
     setIsDarkMode(prev => !prev);
     document.body.classList.toggle('dark');
+    document.body.classList.toggle('darkMode')
     
   };
   // dark mode was switching correctly for sticky header
